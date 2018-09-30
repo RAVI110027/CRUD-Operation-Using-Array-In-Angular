@@ -1,0 +1,137 @@
+<div class="wrapper">
+  <div class="container">
+    <div class="row">
+      <div class="col-md-12 text-center"><h1>{{title}}</h1></div>
+    </div>
+  </div>
+
+  <div class="container-fluid">
+      <div class="table-responsive">
+        <table class="table table-hover table-striped table-bordered table-condensed" id="employeeTable">
+          <thead>
+            <tr>
+              <th>Firstname</th>
+              <th>Lastname</th>
+              <th>Email</th>
+              <th>Contact No</th>
+              <th>Status</th>
+              <th>Options</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let employee of employees; let i=index">
+              <td>{{employee.firstName}}</td>
+              <td>{{employee.lastName}}</td>
+              <td>{{employee.emailId}}</td>
+              <td>{{employee.contactNo}}</td>
+              <td>{{employee.status}}</td>
+              <td><span class="glyphicon glyphicon-trash" (click)="deleteEmployee(i)" ></span><span class="glyphicon glyphicon-edit pL-15" (click)="editEmployee(i)" ></span></td>
+            </tr> 
+        </tbody>
+        </table>
+        </div>
+        </div>
+  
+   <div class="container">
+     <div class="row">
+       <div class="col-md-6">
+         <h1 class="text-center">Add Employee Details</h1>
+          <form class="form-horizontal">
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="firstNameField">First Name:</label>
+                <div class="col-sm-10">
+                  <input type="text" class="form-control" id="firstNameField" name="firstName" [(ngModel)]="model.firstName" placeholder="Enter First Name">
+                </div>
+              </div>
+              <div class="form-group">
+                <label class="control-label col-sm-2" for="lastNameField">Last Name:</label>
+                <div class="col-sm-10"> 
+                  <input type="text" class="form-control" id="lastNameField" name="lastName" [(ngModel)]="model.lastName" placeholder="Enter Last Name">
+                </div>
+              </div>
+              <div class="form-group">
+                  <label class="control-label col-sm-2" for="emailIdField">Email Id:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" class="form-control" id="emailIdField" name="emailId" [(ngModel)]="model.emailId" placeholder="Enter Email Id">
+                  </div>
+                </div>
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="contactField">Contact No:</label>
+                    <div class="col-sm-10"> 
+                      <input type="number" class="form-control" id="contactField" name="contactNo" [(ngModel)]="model.contactNo" placeholder="Enter Contact No">
+                    </div>
+                  </div>
+                  <!-- <div class="form-group">
+                      <label class="control-label col-sm-2" for="action">Status:</label>
+                      <div class="col-sm-10"> 
+                        <input type="text" class="form-control" id="action" name="action" [(ngModel)]="model.action" placeholder="Select Status">
+                      </div>
+                    </div> -->
+                    <div class="form-group">
+                        <label class="control-label col-sm-2" for="actionField">Status:</label>
+                      <div class="col-sm-10"> 
+                        <select class="form-control" id="action" name="status" [(ngModel)]="model.status" placeholder="Select correct option">
+                          <option>Active</option>
+                          <option>Inactive</option>
+                        </select>
+                      </div>
+                      </div>
+              <div class="form-group"> 
+                <div class="col-sm-offset-2 col-sm-10">
+                  <button type="submit" class="btn btn-success" (click)="addEmployee()" >Save</button>
+                </div>
+              </div>
+            </form> 
+       </div>
+       <div class="col-md-6">
+          <h1 class="text-center">Update Employee Details</h1> 
+        <form class="form-horizontal">
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="firstName">First Name:</label>
+            <div class="col-sm-10">
+              <input type="text" class="form-control" id="firstName" name="firstName" [(ngModel)]="model2.firstName" placeholder="Enter First Name">
+            </div>
+          </div>
+          <div class="form-group">
+            <label class="control-label col-sm-2" for="lastName">Last Name:</label>
+            <div class="col-sm-10"> 
+              <input type="text" class="form-control" id="lastName" name="lastName" [(ngModel)]="model2.lastName" placeholder="Enter Last Name">
+            </div>
+          </div>
+          <div class="form-group">
+              <label class="control-label col-sm-2" for="emailId">Email Id:</label>
+              <div class="col-sm-10"> 
+                <input type="text" class="form-control" id="emailId" name="emailId" [(ngModel)]="model2.emailId" placeholder="Enter Email Id">
+              </div>
+            </div>
+            <div class="form-group">
+                <label class="control-label col-sm-2" for="contact">Contact No:</label>
+                <div class="col-sm-10"> 
+                  <input type="number" class="form-control" id="contact" name="contactNo" [(ngModel)]="model2.contactNo" placeholder="Enter Contact No">
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                  <label class="control-label col-sm-2" for="action">Status:</label>
+                  <div class="col-sm-10"> 
+                    <input type="text" class="form-control" id="action" name="status" [(ngModel)]="model2.status">
+                  </div>
+                </div> -->
+                <div class="form-group">
+                    <label class="control-label col-sm-2" for="action">Status:</label>
+                  <div class="col-sm-10"> 
+                    <select class="form-control" id="action" name="status" [(ngModel)]="model2.status">
+                      <option>Active</option>
+                      <option>Inactive</option>
+                    </select>
+                  </div>
+                  </div>
+          <div class="form-group"> 
+            <div class="col-sm-offset-2 col-sm-10">
+              <button type="submit" class="btn btn-success" (click)="updateEmployee()" >Update</button>
+            </div>
+          </div>
+        </form>  
+      </div>
+     </div>
+   </div>
+  </div>
